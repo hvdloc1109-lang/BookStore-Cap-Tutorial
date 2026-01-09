@@ -22,6 +22,8 @@ service BookStoreService {
                                      },
                                  }) newStatus: String);
         };
+    @(Common.SideEffects : { TargetEntities : ['/BookStoreService.EntityContainer/Books']})
+    action addDiscount();
 
     entity Authors    as projection on db.Authors;
     entity Chapters   as projection on db.Chapters;
@@ -31,3 +33,4 @@ service BookStoreService {
 }
 
 annotate BookStoreService.Books with @odata.draft.enabled;
+annotate BookStoreService.Authors with @odata.draft.enabled;
